@@ -57,4 +57,4 @@ def run_discord_bot():
 #    #if message.content.startswith('!tag') and message.channel.id == "1072933532189589506":
 #    await channel.send(f'*Click* Caught in 4k...')
 
-    client.run('MTA3MjkzMDIwODcyMzc3OTYzNA.G7luRi.bZSowEd2LGyZ6R_3RYfbQOv1xBVA9TV3IlOFEM')
+    # add new token client.run('')
