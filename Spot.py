@@ -40,7 +40,7 @@ def run_discord_bot():
         else:
             await send_message(message, user_message, is_private=False)
 
-# referances of old shit, might want it later 
+# referances of old stuff, might want it later 
 
 #@client.event
 #async def on_message(message):
