@@ -44,17 +44,17 @@ def run_discord_bot():
 
 #@client.event
 #async def on_message(message):
-#    channel = client.get_channel(1072933532189589506)
+#    channel = client.get_channel(<channel id>)
 #    if message.author == client.user:
 #       return
 
-#    if message.content.startswith('tag') and message.channel.id == "1072933532189589506":
+#    if message.content.startswith('tag') and message.channel.id == "<channel id>":
 #        await channel.send('*Click* Caught in 4K...')
 
 #@client.command()
 #async def tag(ctx):
-#    channel = client.get_channel(1072933532189589506)
-#    #if message.content.startswith('!tag') and message.channel.id == "1072933532189589506":
+#    channel = client.get_channel(<channel id>)
+#    #if message.content.startswith('!tag') and message.channel.id == "<channel id>":
 #    await channel.send(f'*Click* Caught in 4k...')
 
     # add new token client.run('')
