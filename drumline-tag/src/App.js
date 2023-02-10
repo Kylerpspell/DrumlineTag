@@ -5,7 +5,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Welcome to the drumline Tag site!
+          Welcome to the Drumline Tag site!
         </p>
       </header>
     </div>
