@@ -11,6 +11,9 @@ function NavBar() {
 				<NavLink to="/leaderboard">
 					<li className="NavItem">Leaderboard</li>
 				</NavLink>
+				<NavLink to="/feed">
+					<li className="NavItem">Feed</li>
+				</NavLink>
 			</ul>
 		</div>
 	);

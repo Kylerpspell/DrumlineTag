@@ -65,8 +65,6 @@ function TagLeaderboard () {
 		}));
 	}, [sort]);
 
-
-
 	return (
 		<div>
 			<h1>Tag Leaderboard sorted by {sort}</h1>
