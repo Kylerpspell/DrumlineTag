@@ -72,14 +72,14 @@ function TagLeaderboard () {
 			<h1>Tag Leaderboard sorted by {sort}</h1>
 			<table className='LeaderboardTable'>
 				<thead>
-					<tr className='sortable'>
+					<tr>
 						<th>Rank</th>
 						<th>Drummer</th>
 						<th>Year</th>
 						<th>Section</th>
-						<th onClick={() => setSort("tags")}>Tags</th>
-						<th onClick={() => setSort("tagged")}>Tagged</th>
-						<th onClick={() => setSort("points")}>Points</th>
+						<th className="sortable" onClick={() => setSort("tags")}>Tags</th>
+						<th className="sortable" onClick={() => setSort("tagged")}>Tagged</th>
+						<th className="sortable" onClick={() => setSort("points")}>Points</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -89,7 +89,5 @@ function TagLeaderboard () {
 		</div>
 	);
 }
-
-
 
 export default TagLeaderboard;

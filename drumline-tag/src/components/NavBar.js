@@ -1,11 +1,16 @@
+import { NavLink } from "react-router-dom";
+
+
 function NavBar() {
 	return (
 		<div className="NavBar">
 			<ul className="NavList">
-				<li className="NavItem">Home</li>
-				<li className="NavItem">Leaderboard</li>
-				<li className="NavItem">Feed</li>
-				<li className="NavItem">LiveMap</li>
+				<NavLink to="/">
+					<li className="NavItem">Home</li>
+				</NavLink>
+				<NavLink to="/leaderboard">
+					<li className="NavItem">Leaderboard</li>
+				</NavLink>
 			</ul>
 		</div>
 	);

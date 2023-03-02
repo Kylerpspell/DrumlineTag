@@ -44,7 +44,10 @@
   text-align: center;
 }
 
-.sortable th:hover{
+.sortable:hover{
   cursor: pointer;
   color: #9f0909;
+}
+.sortable{
+	color: #640000;
 }
