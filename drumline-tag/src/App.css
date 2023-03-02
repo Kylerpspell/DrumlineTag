@@ -1,15 +1,50 @@
-.App {
+.NavBar {
+  background-color: #9f0909;
+  height: 50px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.NavList {
+  display: flex;
+  align-items: center;
+  justify-content:left;
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.NavItem {
+  padding: 0 10px;
+  display: flex;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.NavItem:hover {
+  background-color: #4a4a4a;
+}
+
+.LeaderboardTable {
+  margin-top: 50px;
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.LeaderboardTable td {
+  border: 1px solid black;
+  padding: 1px;
+  display: table-cell;
   text-align: center;
 }
 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.sortable th:hover{
+  cursor: pointer;
+  color: #9f0909;
 }

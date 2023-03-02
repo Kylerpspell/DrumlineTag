@@ -1,13 +1,12 @@
 import './App.css';
+import NavBar from './components/NavBar';
+import TagLeaderboard from './components/TagLeaderboard';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Welcome to the Drumline Tag site!
-        </p>
-      </header>
+	  <NavBar />
+		<TagLeaderboard />
     </div>
   );
 }
