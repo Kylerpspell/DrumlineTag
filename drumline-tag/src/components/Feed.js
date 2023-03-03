@@ -1,106 +1,69 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function Feed() {
-	const tagFeed = [
-		{
-			tagger: "John Doe",
-			tagged: "Jane Doe",
-			date: "2021-01-01 12:00:00",
-			picture: "https://picsum.photos/200/300",
-			comments: [
-				{
-					commenter: "Jane Doe",
-					comment: "This is a comment",
-					date: "2021-01-01 12:00:00",
-				},
-				{
-					commenter: "John Doe",
-					comment: "This is another comment",
-					date: "2021-01-01 12:00:00",
-				},
-			],
-		},
-		{
-			tagger: "Jane Doe",
-			tagged: "John Doe",
-			date: "2021-01-01 12:00:00",
-			picture: "https://picsum.photos/200/321",
-			comments: [
-				{
-					commenter: "John Doe",
-					comment: "This is a comment",
-					date: "2021-01-01 12:00:00",
-				},
-				{
-					commenter: "Jane Doe",
-					comment: "This is another comment",
-					date: "2021-01-01 12:00:00",
-				},
-			],
-		},
-		{
-			tagger: "John Doe",
-			tagged: "Jane Doe",
-			date: "2021-01-01 12:00:00",
-			picture: "https://picsum.photos/200/300",
-			comments: [
-				{
-					commenter: "Jane Doe",
-					comment: "This is a comment",
-					date: "2021-01-01 12:00:00",
-				},
-				{
-					commenter: "John Doe",
-					comment: "This is another comment",
-					date: "2021-01-01 12:00:00",
-				},
-			],
-		}
-	];
+	const [tagFeed, setTagFeed] = React.useState([]);
+	const [drummers, setDrummers] = React.useState([]);
 
-	const tagFeedList = tagFeed.map((tag) => {
-		return (
-			<div className="tagFeedItem">
-				<div className="tagger">
-					{tag.tagger} tagged {tag.tagged}
-				</div>
-				<div className="date">
-					{tag.date}
-				</div>
-				<div className="picture">
-					<img src={tag.picture} alt="tagged picture" />
-				</div>
-				<div className="comments">
-					{tag.comments.map((comment) => {
-						return (
-							<div className="comment">
-								<div className="commenter">
-									{comment.commenter}
-								</div>
-								<div>
-									{comment.comment}
-								</div>
-								<div className="date">
-									{comment.date}
-								</div>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-		);
-	});
+	const navigate = useNavigate();
+
+	function timeConverter(UNIX_timestamp){
+		var a = new Date(UNIX_timestamp);
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+		var year = a.getFullYear();
+		var month = months[a.getMonth()];
+		var date = a.getDate();
+		var hour = a.getHours();
+		var min = a.getMinutes();
+		var sec = a.getSeconds();
+		var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+		return time;
+	  }
+
+
+	React.useEffect(() => {
+		fetch("https://drumlinetagbackend.onrender.com/tags")
+			.then((r) => r.json())
+			.then((tags) => {
+				setTagFeed(tags);
+			});	
+	}, []);
+
+	React.useEffect(() => {
+		fetch("https://drumlinetagbackend.onrender.com/drummers")
+			.then((r) => r.json())
+			.then((drummers) => {
+				setDrummers(drummers);
+			});
+		}, []);
+
+	function findDrummer(id) {
+		let name = "";
+		drummers.forEach((drummer) => {
+			if (drummer._id === id) {
+				name = drummer.name;
+			}
+		});
+		return name;
+	}
 
 	return (
-	<div>
-	  <h1>Feed</h1>
-	  <div className="center">
-	  {tagFeedList}
-	  </div>
-	</div>
-  );
+		<div>
+			<h1>Feed</h1>
+			<button onClick={() => navigate("/addTag")}>Add Tag</button>
+			{tagFeed.map((tag) => (
+				<div key={tag._id}>
+						<b>{findDrummer(tag.tagger)}</b>
+					<span> tagged </span>
+						<b>{findDrummer(tag.tagged)}</b>
+					<span> on </span>
+					<span>{timeConverter(tag.date)}</span>
+				</div>
+			))}
+		</div>
+	);
 }
 
 export default Feed;

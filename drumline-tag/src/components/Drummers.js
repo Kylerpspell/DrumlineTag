@@ -5,13 +5,13 @@ function Drummers() {
 	const [drummers, setDrummers] = React.useState([]);
 
 	React.useEffect(() => {
-		fetch("http://localhost:5002/drummers")
+		fetch("https://drumlinetagbackend.onrender.com/drummers")
 			.then((r) => r.json())
 			.then((drummers) => setDrummers(drummers));
 	}, []);
 
 	function removeDrummer(id) {
-		fetch('http://localhost:5002/drummers/'+ id + '/remove', {
+		fetch('https://drumlinetagbackend.onrender.com/drummers/'+ id + '/remove', {
 			method: "DELETE",
 		}).then(() => {
 			setDrummers(drummers.filter((drummer) => drummer._id !== id));

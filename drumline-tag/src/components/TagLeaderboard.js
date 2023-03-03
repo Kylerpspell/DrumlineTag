@@ -11,7 +11,7 @@ function TagLeaderboard () {
 
 	useEffect(() => {
 		async function fetchDrummers(){
-			fetch("http://localhost:5002/drummers")
+			fetch("https://drumlinetagbackend.onrender.com/drummers")
 			.then((r) => r.json())
 			.then((drummers) => setdrummers(drummers));
 		}

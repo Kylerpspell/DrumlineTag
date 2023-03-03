@@ -9,7 +9,7 @@ function AddDrummer() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		fetch("http://localhost:5001/drummers/add", {
+		fetch("https://drumlinetagbackend.onrender.com/drummers/add", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
