@@ -39,6 +39,24 @@ function Feed() {
 					date: "2021-01-01 12:00:00",
 				},
 			],
+		},
+		{
+			tagger: "John Doe",
+			tagged: "Jane Doe",
+			date: "2021-01-01 12:00:00",
+			picture: "https://picsum.photos/200/300",
+			comments: [
+				{
+					commenter: "Jane Doe",
+					comment: "This is a comment",
+					date: "2021-01-01 12:00:00",
+				},
+				{
+					commenter: "John Doe",
+					comment: "This is another comment",
+					date: "2021-01-01 12:00:00",
+				},
+			],
 		}
 	];
 
