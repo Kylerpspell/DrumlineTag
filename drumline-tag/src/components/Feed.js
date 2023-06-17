@@ -52,7 +52,6 @@ function Feed() {
 	return (
 		<div>
 			<h1>Feed</h1>
-			<button onClick={() => navigate("/addTag")}>Add Tag</button>
 			{tagFeed.map((tag) => (
 				<div key={tag._id}>
 						<b>{findDrummer(tag.tagger)}</b>

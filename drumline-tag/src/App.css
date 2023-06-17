@@ -30,26 +30,19 @@
   background-color: #4a4a4a;
 }
 
-.LeaderboardTable {
-  margin-top: 50px;
-  width: 100%;
-  border: 1px solid black;
+.leaderboardTable {
+  width: 70%;
+  border: #4a4a4a solid 1px;
   border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px; 
 }
 
-.LeaderboardTable td {
-  border: 1px solid black;
-  padding: 1px;
-  display: table-cell;
+.leaderboardTable td, .leaderboardTable th {
+  border: #4a4a4a solid 1px;
+  padding: 5px;
   text-align: center;
-}
-
-.sortable:hover{
-  cursor: pointer;
-  color: #9f0909;
-}
-.sortable{
-	color: #640000;
 }
 
 
