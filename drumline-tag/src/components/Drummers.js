@@ -19,37 +19,33 @@ function Drummers() {
 		
 	}
 
-
 	function drummerTable() {
 		return drummers.map((drummer) => (
 			<tr key={drummer._id}>
 				<td>{drummer.name}</td>
 				<td>{drummer.section}</td>
 				<td>{drummer.year}</td>
-				<td>
+				{/* <td>
 					<button onClick={() => removeDrummer(drummer._id)}>Remove</button>
-				</td>
+				</td> */}
 			</tr>
 		));
 	}
 
-
-
 	return (
 		<div>
 			<h1>Drummers</h1>
-			<table className="LeaderboardTable">
+			<table className="leaderboardTable">
 				<thead>
 					<tr>
 						<th>Name</th>
 						<th>Section</th>
 						<th>Year</th>
-						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>{drummerTable()}</tbody>
 			</table>
-			<button onClick={() => navigate("/drummers/add")}>Add Drummer</button>
+			{/* <button onClick={() => navigate("/drummers/add")}>Add Drummer</button> */}
 		</div>
 	);
 }
