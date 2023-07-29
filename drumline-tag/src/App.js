@@ -14,7 +14,7 @@ function App() {
 	  <Router>
 		<NavBar />
 		<Routes>
-			<Route path="/" element={<HomePage />} />
+			<Route path="/" element={<TagLeaderboard />} />
 			<Route path="/leaderboard" element={<TagLeaderboard />} />
 			<Route path="/drummers" element={<Drummers />} />
 			<Route path="/feed" element={<Feed />} />

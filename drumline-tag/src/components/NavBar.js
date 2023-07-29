@@ -5,9 +5,9 @@ function NavBar() {
 	return (
 		<div className="NavBar">
 			<ul className="NavList">
-				<NavLink to="/">
+				{/* <NavLink to="/">
 					<li className="NavItem">Home</li>
-				</NavLink>
+				</NavLink> */}
 				<NavLink to="/leaderboard">
 					<li className="NavItem">Leaderboard</li>
 				</NavLink>
