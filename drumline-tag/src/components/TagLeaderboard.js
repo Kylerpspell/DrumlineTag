@@ -53,7 +53,6 @@ function TagLeaderboard () {
 			</table>
 		</div>
 	);
-
 }
 
 export default TagLeaderboard;

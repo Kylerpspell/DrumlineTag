@@ -17,7 +17,6 @@ function Feed() {
 		var date = a.getDate();
 		var hour = a.getHours();
 		var min = a.getMinutes();
-		var sec = a.getSeconds();
 		var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min;
 		return time;
 	  }
@@ -27,8 +26,8 @@ function Feed() {
 		fetch("https://drumlinetagbackend.onrender.com/tags")
 			.then((r) => r.json())
 			.then((tags) => {
-				setTagFeed(tags);
-			});	
+				setTagFeed(sortTags(tags));
+		});	
 	}, []);
 
 	React.useEffect(() => {
@@ -49,21 +48,47 @@ function Feed() {
 		return name;
 	}
 
+	function createTagDiv(tag) {
+		if (tag.img_url) {
+			return (
+				<div class='feedItem' key={tag._id}>
+					<img src={tag.img_url} alt={tag.tagger}/>
+					<b>{findDrummer(tag.tagger)}</b>
+					<span> tagged </span>
+					<b>{findDrummer(tag.tagged)}</b>
+					<span> on </span>
+					<span>{timeConverter(tag.date)}</span>
+				</div>
+			);
+		} else {
+			return (
+				<div class='feedItem' key={tag._id}>
+					<b>{findDrummer(tag.tagger)}</b>
+					<span> tagged </span>
+					<b>{findDrummer(tag.tagged)}</b>
+					<span> on </span>
+					<span>{timeConverter(tag.date)}</span>
+				</div>
+			);
+		}
+	}
+
+	function sortTags(tags) {
+		tags.sort((a, b) => new Date(b.date) - new Date(a.date));
+		console.log(tags);
+		return tags;
+	}
+
 	const tagDivs = tagFeed.map((tag) => (
-		<div class='feedItem' key={tag._id}>
-			<b>{findDrummer(tag.tagger)}</b>
-			<span> tagged </span>
-			<b>{findDrummer(tag.tagged)}</b>
-			<span> on </span>
-			<span>{timeConverter(tag.date)}</span>
-		</div>
+		createTagDiv(tag)
 	));
 
 
-
 	return (
-		<div style={{marginTop:'100px'}}>
-			{tagDivs}
+		<div>
+			<div style={{marginTop:'100px'}}>
+				{tagDivs}
+			</div>
 		</div>
 	);
 }

@@ -9,8 +9,6 @@ function NavBar() {
 		const navList = document.querySelector(".NavList");
 		const navItems = navList.querySelectorAll(".NavItem");
 		navItems.forEach((item) => {
-			console.log(item.innerText.toLowerCase(), location.pathname.slice(1).toLowerCase());
-			console.log(item.innerText.toLowerCase() === location.pathname.slice(1).toLowerCase());
 			if (item.innerText.toLowerCase() === location.pathname.slice(1).toLowerCase()) {
 				item.classList.add("active");
 			} else {
