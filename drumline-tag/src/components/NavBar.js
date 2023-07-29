@@ -1,7 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { React, useEffect } from "react";
 
 
 function NavBar() {
+	const location = useLocation();
+
+	useEffect(() => {
+		const navList = document.querySelector(".NavList");
+		const navItems = navList.querySelectorAll(".NavItem");
+		navItems.forEach((item) => {
+			console.log(item.innerText.toLowerCase(), location.pathname.slice(1).toLowerCase());
+			console.log(item.innerText.toLowerCase() === location.pathname.slice(1).toLowerCase());
+			if (item.innerText.toLowerCase() === location.pathname.slice(1).toLowerCase()) {
+				item.classList.add("active");
+			} else {
+				item.classList.remove("active");
+			}
+		});
+	}, [location]);
+	
 	return (
 		<div className="NavBar">
 			<ul className="NavList">

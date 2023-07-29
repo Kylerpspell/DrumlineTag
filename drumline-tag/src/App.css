@@ -19,46 +19,71 @@
 }
 
 .NavItem {
-  padding: 0 10px;
-  display: flex;
+  width: 130px;
   color: white;
   font-size: 1.2em;
+  padding: 0;
   text-decoration: none;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .NavItem:hover {
-  background-color: #4a4a4a;
+  color: #ffffff;
+  transform: scale(1.1);
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 500ms;
+  text-shadow: #4a4a4a 0px 0px 10px;
+}
+
+.NavItem.active {
+  color: #a8a8a8;
+  transform: scale(1.2);
 }
 
 .leaderboardTable {
-  width: 70%;
-  border: #4a4a4a solid 1px;
+  width: 50%;
+  border: #fff solid 2px;
   border-collapse: collapse;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px; 
+  color: #fff
 }
 
 .leaderboardTable td, .leaderboardTable th {
-  border: #4a4a4a solid 1px;
+  border: #fff solid 2px;
   padding: 5px;
   text-align: center;
+  background-color: #940909;
 }
 
 .feedItem {
   width: 50%;
   text-align: center;
-  border: #4a4a4a solid 1px;
+  border: #fff solid 2px;
   border-collapse: collapse;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px; 
   padding: 30px;
   border-radius: 10px;
-  background-color: #f2f2f2;
+
+  background-color: #940909;
 }
 
 .feedItem:hover {
-  background-color: #e6e6e6;
-  color: #9f0909;
+  background-color: #940909;
+  color: #fff;
+  border: #000 solid 2px;
+  transition: ease-in-out 0.3s;
+  scale: 1.1;
+}
+
+a{
+  text-decoration: none;
+}
+
+body {
+  background-color: #282828;
 }
