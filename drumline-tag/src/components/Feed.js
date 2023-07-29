@@ -18,7 +18,7 @@ function Feed() {
 		var hour = a.getHours();
 		var min = a.getMinutes();
 		var sec = a.getSeconds();
-		var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+		var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min;
 		return time;
 	  }
 
@@ -49,18 +49,21 @@ function Feed() {
 		return name;
 	}
 
+	const tagDivs = tagFeed.map((tag) => (
+		<div class='feedItem' key={tag._id}>
+			<b>{findDrummer(tag.tagger)}</b>
+			<span> tagged </span>
+			<b>{findDrummer(tag.tagged)}</b>
+			<span> on </span>
+			<span>{timeConverter(tag.date)}</span>
+		</div>
+	));
+
+
+
 	return (
-		<div>
-			<h1>Feed</h1>
-			{tagFeed.map((tag) => (
-				<div key={tag._id}>
-						<b>{findDrummer(tag.tagger)}</b>
-					<span> tagged </span>
-						<b>{findDrummer(tag.tagged)}</b>
-					<span> on </span>
-					<span>{timeConverter(tag.date)}</span>
-				</div>
-			))}
+		<div style={{marginTop:'100px'}}>
+			{tagDivs}
 		</div>
 	);
 }

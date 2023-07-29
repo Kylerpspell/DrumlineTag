@@ -34,7 +34,6 @@ function Drummers() {
 
 	return (
 		<div>
-			<h1>Drummers</h1>
 			<table className="leaderboardTable">
 				<thead>
 					<tr>

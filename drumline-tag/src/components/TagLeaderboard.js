@@ -35,7 +35,6 @@ function TagLeaderboard () {
 
 	return (
 		<div>
-			<h1>Tag Leaderboard</h1>
 			<table className='leaderboardTable'>
 				<thead>
 					<tr>
