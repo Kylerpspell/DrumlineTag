@@ -51,14 +51,16 @@ function Feed() {
 	function createTagDiv(tag) {
 		if (tag.img_url) {
 			return (
-				<div class='feedItem' key={tag._id}>
-					<img src={tag.img_url} alt={tag.tagger}/>
-					<b>{findDrummer(tag.tagger)}</b>
-					<span> tagged </span>
-					<b>{findDrummer(tag.tagged)}</b>
-					<span> on </span>
-					<span>{timeConverter(tag.date)}</span>
-				</div>
+				<a href={tag.img_url}>
+					<div class='feedItem' key={tag._id}>
+						<img src={tag.img_url} alt={tag.tagger}/>
+						<b>{findDrummer(tag.tagger)}</b>
+						<span> tagged </span>
+						<b>{findDrummer(tag.tagged)}</b>
+						<span> on </span>
+						<span>{timeConverter(tag.date)}</span>
+					</div>
+				</a>
 			);
 		} else {
 			return (
