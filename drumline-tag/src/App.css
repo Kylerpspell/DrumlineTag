@@ -10,7 +10,7 @@
 .NavList {
   display: flex;
   align-items: center;
-  justify-content:left;
+  justify-content: left;
   list-style: none;
   height: 100%;
   width: 100%;
@@ -19,10 +19,16 @@
 }
 
 .NavItem {
-  width: 130px;
-  color: white;
+  border: grey solid 2px;
+  border-collapse: collapse;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  color: #4a4a4a;
+  background-color: #940909;
+  background-image: linear-gradient(to top, black 0%, #940909 100%);
   font-size: 1.2em;
-  padding: 0;
+  padding: 3px 20px 3px;
   text-decoration: none;
   text-align: center;
   text-transform: capitalize;
@@ -33,11 +39,11 @@
   transform: scale(1.1);
   transition: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-duration: 500ms;
-  text-shadow: #4a4a4a 0px 0px 10px;
+  text-shadow: #ffffff 0px 0px 10px;
 }
 
 .NavItem.active {
-  color: #a8a8a8;
+  color: #ffffff;
   transform: scale(1.2);
 }
 
@@ -56,6 +62,7 @@
   padding: 5px;
   text-align: center;
   background-color: #940909;
+  background-image: linear-gradient(to top, black 0%, #940909 100%);
 }
 
 .feedItem {
@@ -107,6 +114,7 @@ body {
   border-radius: 10px;
   color: #fff;
   background-color: #940909;
+  background-image: linear-gradient(to top, black 0%, #940909 100%);
   transition: ease-in-out 0.3s;
 }
 
@@ -122,4 +130,25 @@ body {
   border: #000 solid 2px;
   transition: ease-in-out 0.3s;
   scale: 1.1;
+}
+
+.img {
+  display: block;
+  width: 95%;
+  max-width: 100%;
+  margin: auto;
+}
+
+.img-bg {
+  content: "";
+  width: 80%;
+  z-index: -1;
+
+  position: absolute;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+
+  background-color: #fff;
+  border-radius: 30% 0% 0% 28%;
 }
