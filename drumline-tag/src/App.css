@@ -19,14 +19,9 @@
 }
 
 .NavItem {
-  border: grey solid 2px;
-  border-collapse: collapse;
-  border-radius: 10px;
   margin: 20px;
   display: flex;
   color: hsl(0, 1%, 56%);
-  background-color: #940909;
-  background-image: linear-gradient(to top, rgb(31, 31, 31) 0%, #940909 100%);
   font-size: 1.2em;
   padding: 3px 20px 3px;
   text-decoration: none;
