@@ -4,6 +4,36 @@ function TagLeaderboard () {
 	const [tags, setTags] = useState([]);
 	const [drummers, setDrummers] = useState([]);
 	const [tagLeaderboard, setTagLeaderboard] = useState([]);
+	const [mostWanted, setMostWanted] = useState({});
+	
+	const mostWantedPoster = () => {
+		// if mostWanted is not empty, return mostWantedPoster
+		let hasImage = false;
+		let mostWantedImage = '';
+		tags.forEach((tag) => {
+			if (tag.tagger === mostWanted._id) {
+				hasImage = true;
+				mostWantedImage = tag.img_url;
+			}
+		});
+		
+		if (hasImage) {
+			return (
+				<div className='mostWantedPoster'>
+					<h2>Most Wanted</h2>
+					<img src={mostWantedImage} alt={mostWanted.name}/>
+					<h3>{mostWanted.name}</h3>
+				</div>
+			);
+		} else {
+			return (
+				<div className='mostWantedPoster'>
+					<h2>Most Wanted</h2>
+					<h3>{mostWanted.name}</h3>
+				</div>
+			);
+		}
+	};
 
 	useEffect(() => {
 		fetch("https://drumlinetagbackend.onrender.com/tags")
@@ -13,7 +43,14 @@ function TagLeaderboard () {
 		fetch("https://drumlinetagbackend.onrender.com/drummers")
 			.then((r) => r.json())
 			.then((drummers) => setDrummers(drummers));
-	}, []);
+		
+		// loop through drummers and find isMostWanted
+		drummers.forEach((drummer) => {
+			if (drummer.isMostWanted) {
+				setMostWanted(drummer);
+			}
+		});
+	}, [mostWantedPoster]);
 
 	useEffect(() => {
 		let tagLeaderboard = [];
@@ -21,6 +58,9 @@ function TagLeaderboard () {
 			let totalPoints = 0;
 			tags.forEach((tag) => {
 				if (tag.tagger === drummer._id) {
+					if (tag.isOfMostWanted) {
+						totalPoints += 5;
+					}
 					totalPoints += 3;
 				}
 				if (tag.tagged === drummer._id) {
@@ -51,6 +91,7 @@ function TagLeaderboard () {
 					))}
 				</tbody>
 			</table>
+			{mostWantedPoster()}
 		</div>
 	);
 }
