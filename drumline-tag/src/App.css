@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   z-index: 1;
+  padding: 0;
 }
 
 .NavList {
@@ -22,7 +23,7 @@
   margin: 20px;
   display: flex;
   color: hsl(0, 1%, 56%);
-  font-size: 1.2em;
+  font-size: 3.2vmin;
   padding: 3px 20px 3px;
   text-decoration: none;
   text-align: center;
