@@ -24,9 +24,9 @@
   border-radius: 10px;
   margin: 20px;
   display: flex;
-  color: #4a4a4a;
+  color: hsl(0, 1%, 56%);
   background-color: #940909;
-  background-image: linear-gradient(to top, black 0%, #940909 100%);
+  background-image: linear-gradient(to top, rgb(31, 31, 31) 0%, #940909 100%);
   font-size: 1.2em;
   padding: 3px 20px 3px;
   text-decoration: none;
@@ -62,7 +62,7 @@
   padding: 5px;
   text-align: center;
   background-color: #940909;
-  background-image: linear-gradient(to top, black 0%, #940909 100%);
+  background-image: linear-gradient(to top, rgb(31, 31, 31) 0%, #940909 100%);
 }
 
 .feedItem {
@@ -114,7 +114,7 @@ body {
   border-radius: 10px;
   color: #fff;
   background-color: #940909;
-  background-image: linear-gradient(to top, black 0%, #940909 100%);
+  background-image: linear-gradient(to top, rgb(31, 31, 31) 0%, #940909 100%);
   transition: ease-in-out 0.3s;
 }
 
