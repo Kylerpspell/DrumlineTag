@@ -61,9 +61,7 @@ function TagLeaderboard () {
 					if (tag.isOfMostWanted) {
 						totalPoints += 5;
 					}
-					else {
-						totalPoints += 3;
-					}
+					totalPoints += 3;
 				}
 				if (tag.tagged === drummer._id) {
 					totalPoints -= 1;
