@@ -11,7 +11,7 @@ function TagLeaderboard () {
 		let hasImage = false;
 		let mostWantedImage = '';
 		tags.forEach((tag) => {
-			if (tag.tagger === mostWanted._id) {
+			if (tag.tagged === mostWanted._id) {
 				hasImage = true;
 				mostWantedImage = tag.img_url;
 			}
@@ -61,7 +61,9 @@ function TagLeaderboard () {
 					if (tag.isOfMostWanted) {
 						totalPoints += 5;
 					}
-					totalPoints += 3;
+					else {
+						totalPoints += 3;
+					}
 				}
 				if (tag.tagged === drummer._id) {
 					totalPoints -= 1;
