@@ -148,3 +148,11 @@ body {
   background-color: #fff;
   border-radius: 30% 0% 0% 28%;
 }
+
+.activeFilter {
+  background-color: #282828;
+}
+
+.inactiveFilter {
+  background-color: #ffffff;
+}
