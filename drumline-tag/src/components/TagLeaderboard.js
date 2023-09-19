@@ -127,7 +127,7 @@ function TagLeaderboard () {
 		yearLeaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
 		setClassLeaderboard(yearLeaderboard)
 
-		const sections = ["snare", "tenor", "multi", "bass", "cymbals"]
+		const sections = ["snare", "tenor", "multi", "bass", "cymbal"]
 		const sectionLeaderboard = []
 		sections.forEach((section) => {
 			let totalPoints = 0;
@@ -181,7 +181,7 @@ function TagLeaderboard () {
 					<button onClick={() => toggleFilters('bass')} className={(filters.includes('bass')) ? 'activeFilter': 'inactiveFilter'}>
 						<img src={bassLogo} alt="Bass Picture" height='48'></img>
 					</button>
-					<button onClick={() => toggleFilters('cymbals')} className={(filters.includes('cymbals')) ? 'activeFilter': 'inactiveFilter'}>
+					<button onClick={() => toggleFilters('cymbal')} className={(filters.includes('cymbal')) ? 'activeFilter': 'inactiveFilter'}>
 						<img src={cymbalLogo} alt="Cymbal Picture" height='48'></img>
 					</button>
 				</span>
