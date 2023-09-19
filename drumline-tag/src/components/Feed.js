@@ -77,7 +77,6 @@ function Feed() {
 
 	function sortTags(tags) {
 		tags.sort((a, b) => new Date(b.date) - new Date(a.date));
-		console.log(tags);
 		return tags;
 	}
 

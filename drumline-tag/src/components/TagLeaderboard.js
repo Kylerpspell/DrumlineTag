@@ -12,6 +12,9 @@ function TagLeaderboard () {
 	const [mostWanted, setMostWanted] = useState({});
 	const [filters, setFilters] = useState(["snare", "tenor", "bass", "multi", "cymbal"]);
 	
+	const [sectionLeaderboard, setSectionLeaderboard] = useState([]);
+	const [classLeaderboard, setClassLeaderboard] = useState([]);
+
 	const mostWantedPoster = () => {
 		// if mostWanted is not empty, return mostWantedPoster
 		let hasImage = false;
@@ -54,7 +57,7 @@ function TagLeaderboard () {
 		});
 		return mappedTable;
 	}
-	
+
 	useEffect(() => {
 		fetch("https://drumlinetagbackend.onrender.com/tags")
 			.then((r) => r.json())
@@ -88,8 +91,9 @@ function TagLeaderboard () {
 				if (tag.tagger === drummer._id) {
 					if (tag.isOfMostWanted) {
 						totalPoints += 5;
-					}
-					totalPoints += 3;
+					} else { // was this supposed to be like this?
+						totalPoints += 3;
+					} 
 				}
 				if (tag.tagged === drummer._id) {
 					totalPoints -= 1;
@@ -99,6 +103,52 @@ function TagLeaderboard () {
 		});
 		tagLeaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
 		setTagLeaderboard(tagLeaderboard);
+
+		const years = ["freshman", "sophomore", "junior", "senior"]
+		const yearLeaderboard = []
+		years.forEach((year) => {
+			let totalPoints = 0;
+			tags.forEach((tag) => {
+				drummers.forEach((drummer) => {
+					if ((tag.tagger === drummer._id && drummer.year === year)) {
+						if (tag.isOfMostWanted) {
+							totalPoints += 5;
+						} else { 
+							totalPoints += 3; // was this supposed to be like this?
+						}
+					}
+					if ((tag.tagged === drummer._id) && (drummer.year === year)) {
+						totalPoints -= 1;
+					}
+				});
+			});
+			yearLeaderboard.push({year: year, totalPoints: totalPoints});
+		});
+		yearLeaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+		setClassLeaderboard(yearLeaderboard)
+
+		const sections = ["snare", "tenor", "multi", "bass", "cymbals"]
+		const sectionLeaderboard = []
+		sections.forEach((section) => {
+			let totalPoints = 0;
+			tags.forEach((tag) => {
+				drummers.forEach((drummer) => {
+					if ((tag.tagger === drummer._id && drummer.section === section)) {
+						if (tag.isOfMostWanted) {
+							totalPoints += 5;
+						} else {
+							totalPoints += 3; // was this supposed to be like this?
+						}
+					}
+					if ((tag.tagged === drummer._id) && (drummer.section === section)) {
+						totalPoints -= 1;
+					}
+				});
+			});
+			sectionLeaderboard.push({section: section, totalPoints: totalPoints});
+		});
+		sectionLeaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+		setSectionLeaderboard(sectionLeaderboard)
 	}, [tags, drummers, filters]);
 
 	const deleteByValue = value => {
@@ -117,7 +167,7 @@ function TagLeaderboard () {
 
 	return (
 		<div>
-			<div>
+			<div className='filterSelect'>
 				<span>
 					<button onClick={() => toggleFilters('snare')} className={(filters.includes('snare')) ? 'activeFilter': 'inactiveFilter'}>
 						<img src={snareLogo} alt="Snare Picture" height='48'></img>
@@ -147,7 +197,47 @@ function TagLeaderboard () {
 					{allMappedToTable()}
 				</tbody>
 			</table>
-			{mostWantedPoster()}
+			
+			<div className='subTableSpan'>
+				{mostWantedPoster()}
+				<div className='subTableWrapper'>
+					<table className='subTable'>
+						<thead>
+							<tr>
+								<th>Class</th>
+								<th>Total Points</th>
+							</tr>
+						</thead>
+						<tbody>
+							{classLeaderboard.map((classYear) => ( 
+								<tr key={classYear.year}>
+									<td>{classYear.year}</td>
+									<td>{classYear.totalPoints}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+				<div className='subTableWrapper'>
+					<table className='subTable'>
+						<thead>
+							<tr>
+								<th>Section</th>
+								<th>Total Points</th>
+							</tr>
+						</thead>
+						<tbody>
+							{sectionLeaderboard.map((section) => ( 
+								<tr key={section.section}>
+									<td>{section.section}</td>
+									<td>{section.totalPoints}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
 		</div>
 	);
 }
