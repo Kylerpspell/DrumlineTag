@@ -119,7 +119,7 @@ function TagLeaderboard () {
 			});
 			yearLeaderboard.push({year: year, totalPoints: totalPoints});
 		});
-
+		yearLeaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
 		setClassLeaderboard(yearLeaderboard)
 
 		const sections = ["snare", "tenor", "multi", "bass", "cymbals"]
@@ -142,6 +142,7 @@ function TagLeaderboard () {
 			});
 			sectionLeaderboard.push({section: section, totalPoints: totalPoints});
 		});
+		sectionLeaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
 		setSectionLeaderboard(sectionLeaderboard)
 	}, [tags, drummers, filters]);
 
