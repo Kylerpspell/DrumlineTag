@@ -1,11 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import snareLogo from "../images/Snare.png";
+import tenorLogo from "../images/Tenor.png"
+import bassLogo from "../images/Bass.png";
+import multiLogo from "../images/Multi.png";
+import cymbalLogo from "../images/Cymbal.png";
 function TagLeaderboard () {
 	const [tags, setTags] = useState([]);
 	const [drummers, setDrummers] = useState([]);
 	const [tagLeaderboard, setTagLeaderboard] = useState([]);
 	const [mostWanted, setMostWanted] = useState({});
-	const [filters, setFilters] = useState(["snare", "tenor", "bass", "multi", "cymbals"]);
+	const [filters, setFilters] = useState(["snare", "tenor", "bass", "multi", "cymbal"]);
 	
 	const [sectionLeaderboard, setSectionLeaderboard] = useState([]);
 	const [classLeaderboard, setClassLeaderboard] = useState([]);
@@ -163,21 +168,23 @@ function TagLeaderboard () {
 	return (
 		<div>
 			<div className='filterSelect'>
-				<button onClick={() => toggleFilters('snare')} className={(filters.includes('snare')) ? 'activeFilter': 'inactiveFilter'}>
-					Snare
-				</button>
-				<button onClick={() => toggleFilters('tenor')} className={(filters.includes('tenor')) ? 'activeFilter': 'inactiveFilter'}>
-					Tenor
-				</button>
-				<button onClick={() => toggleFilters('multi')} className={(filters.includes('multi')) ? 'activeFilter': 'inactiveFilter'}>
-					Multi
-				</button>
-				<button onClick={() => toggleFilters('bass')} className={(filters.includes('bass')) ? 'activeFilter': 'inactiveFilter'}>
-					Bass
-				</button>
-				<button onClick={() => toggleFilters('cymbals')} className={(filters.includes('cymbals')) ? 'activeFilter': 'inactiveFilter'}>
-					Cymbals
-				</button>
+				<span>
+					<button onClick={() => toggleFilters('snare')} className={(filters.includes('snare')) ? 'activeFilter': 'inactiveFilter'}>
+						<img src={snareLogo} alt="Snare Picture" height='48'></img>
+					</button>
+					<button onClick={() => toggleFilters('tenor')} className={(filters.includes('tenor')) ? 'activeFilter': 'inactiveFilter'}>
+						<img src={tenorLogo} alt="Tenor Picture" height='48'></img>
+					</button>
+					<button onClick={() => toggleFilters('multi')} className={(filters.includes('multi')) ? 'activeFilter': 'inactiveFilter'}>
+						<img src={multiLogo} alt="Multi Picture" height='48'></img>
+					</button>
+					<button onClick={() => toggleFilters('bass')} className={(filters.includes('bass')) ? 'activeFilter': 'inactiveFilter'}>
+						<img src={bassLogo} alt="Bass Picture" height='48'></img>
+					</button>
+					<button onClick={() => toggleFilters('cymbals')} className={(filters.includes('cymbals')) ? 'activeFilter': 'inactiveFilter'}>
+						<img src={cymbalLogo} alt="Cymbal Picture" height='48'></img>
+					</button>
+				</span>
 			</div>
 			<table className='leaderboardTable'>
 				<thead>
