@@ -224,7 +224,7 @@ function TagLeaderboard () {
 									<td>{section.section}</td>
 									<td>{section.totalPoints}</td>
 								</tr>
-							))};
+							))}
 						</tbody>
 					</table>
 				</div>
