@@ -99,7 +99,7 @@ body {
 }
 
 .mostWantedPoster {
-  width: 25%;
+  width: 20%;
   text-align: center;
   border: #fff solid 2px;
   border-collapse: collapse;
@@ -150,9 +150,57 @@ body {
 }
 
 .activeFilter {
-  background-color: #282828;
+  background-color: #ffffff;
 }
 
 .inactiveFilter {
-  background-color: #ffffff;
+
+  background-color: #282828;
+}
+
+.filterSelect {
+  margin-left: 30%;
+  width: 50%;
+  padding: 20px;
+  display: flexbox;
+}
+
+.filterSelect button {
+  float: inline-start;
+  text-align: center;
+  margin-left: 20px;
+}
+
+.subtable {
+  width: 100%;
+  border: #fff solid 2px;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 20px; 
+  margin-left: 20px;
+  color: #fff
+}
+
+.subTable td, .subTable th {
+  border: #fff solid 1px;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  background-color: #940909;
+  background-image: linear-gradient(to top, rgb(31, 31, 31) 0%, #940909 100%);
+}
+
+.subTableSpan {
+  display: inline-flex;
+  flex-direction: row;
+  margin: 20px 20px;
+  padding-inline: 20px;
+  justify-content: center;
+}
+
+.subTableWrapper {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;;
 }
