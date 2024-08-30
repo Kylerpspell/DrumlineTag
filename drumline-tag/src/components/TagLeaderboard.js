@@ -166,78 +166,82 @@ function TagLeaderboard () {
 	}
 
 	return (
-		<div>
-			<div className='filterSelect'>
-				<span>
-					<button onClick={() => toggleFilters('snare')} className={(filters.includes('snare')) ? 'activeFilter': 'inactiveFilter'}>
-						<img src={snareLogo} alt="Snare Picture" height='48'></img>
-					</button>
-					<button onClick={() => toggleFilters('tenor')} className={(filters.includes('tenor')) ? 'activeFilter': 'inactiveFilter'}>
-						<img src={tenorLogo} alt="Tenor Picture" height='48'></img>
-					</button>
-					<button onClick={() => toggleFilters('multi')} className={(filters.includes('multi')) ? 'activeFilter': 'inactiveFilter'}>
-						<img src={multiLogo} alt="Multi Picture" height='48'></img>
-					</button>
-					<button onClick={() => toggleFilters('bass')} className={(filters.includes('bass')) ? 'activeFilter': 'inactiveFilter'}>
-						<img src={bassLogo} alt="Bass Picture" height='48'></img>
-					</button>
-					<button onClick={() => toggleFilters('cymbal')} className={(filters.includes('cymbal')) ? 'activeFilter': 'inactiveFilter'}>
-						<img src={cymbalLogo} alt="Cymbal Picture" height='48'></img>
-					</button>
-				</span>
-			</div>
-			<table className='leaderboardTable'>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Total Points</th>
-					</tr>
-				</thead>
-				<tbody>
-					{allMappedToTable()}
-				</tbody>
-			</table>
-			
-			<div className='subTableSpan'>
-				{mostWantedPoster()}
-				<div className='subTableWrapper'>
-					<table className='subTable'>
+		<div className='leaderboardAdjustedColumn'>
+			<div className='twoColumn'> 
+				<div className='leaderboardAndFilterColumn'>
+						<div className='filterSelect'>
+						<span>
+							<button onClick={() => toggleFilters('snare')} className={(filters.includes('snare')) ? 'activeFilter': 'inactiveFilter'}>
+								<img src={snareLogo} alt="Snare Picture" height='48'></img>
+							</button>
+							<button onClick={() => toggleFilters('tenor')} className={(filters.includes('tenor')) ? 'activeFilter': 'inactiveFilter'}>
+								<img src={tenorLogo} alt="Tenor Picture" height='48'></img>
+							</button>
+							<button onClick={() => toggleFilters('multi')} className={(filters.includes('multi')) ? 'activeFilter': 'inactiveFilter'}>
+								<img src={multiLogo} alt="Multi Picture" height='48'></img>
+							</button>
+							<button onClick={() => toggleFilters('bass')} className={(filters.includes('bass')) ? 'activeFilter': 'inactiveFilter'}>
+								<img src={bassLogo} alt="Bass Picture" height='48'></img>
+							</button>
+							<button onClick={() => toggleFilters('cymbal')} className={(filters.includes('cymbal')) ? 'activeFilter': 'inactiveFilter'}>
+								<img src={cymbalLogo} alt="Cymbal Picture" height='48'></img>
+							</button>
+						</span>
+					</div>
+
+					<table className='leaderboardTable'>
 						<thead>
 							<tr>
-								<th>Class</th>
+								<th>Name</th>
 								<th>Total Points</th>
 							</tr>
 						</thead>
 						<tbody>
-							{classLeaderboard.map((classYear) => ( 
-								<tr key={classYear.year}>
-									<td>{classYear.year}</td>
-									<td>{classYear.totalPoints}</td>
-								</tr>
-							))}
+							{allMappedToTable()}
 						</tbody>
 					</table>
 				</div>
-				<div className='subTableWrapper'>
-					<table className='subTable'>
-						<thead>
-							<tr>
-								<th>Section</th>
-								<th>Total Points</th>
-							</tr>
-						</thead>
-						<tbody>
-							{sectionLeaderboard.map((section) => ( 
-								<tr key={section.section}>
-									<td>{section.section}</td>
-									<td>{section.totalPoints}</td>
+
+				<div className='subtableColumn'>
+						<table className='subTable'>
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Total Points</th>
 								</tr>
-							))}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{classLeaderboard.map((classYear) => ( 
+									<tr key={classYear.year}>
+										<td>{classYear.year}</td>
+										<td>{classYear.totalPoints}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+
+						<table className='subTable'>
+							<thead>
+								<tr>
+									<th>Section</th>
+									<th>Total Points</th>
+								</tr>
+							</thead>
+							<tbody>
+								{sectionLeaderboard.map((section) => ( 
+									<tr key={section.section}>
+										<td>{section.section}</td>
+										<td>{section.totalPoints}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+
+					<div>
+						{mostWantedPoster()}
+					</div>
 				</div>
-			</div>
-			
+			</div>	
 		</div>
 	);
 }
